@@ -219,7 +219,7 @@ def test_nested_activation_and_report() -> None:
     data = s.to_dict()
     assert data["seed"] == 3 and data["totals"] == {
         "calls": 2,
-        "faults_injected": 1,
+        "simulated": 1,
         "unmatched": 0,
     }
     assert '"scenario": "report"' in fs.to_json(s)

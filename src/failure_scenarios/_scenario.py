@@ -79,6 +79,7 @@ class CallRecord:
     ended_at: float | None = None
     status: int | None = None
     error: str | None = None
+    request: RequestInfo | None = field(default=None, repr=False, compare=False)
 
     @property
     def outcome(self) -> str:
@@ -194,7 +195,7 @@ class Rule:
         return self._count
 
     @property
-    def faults_injected(self) -> int:
+    def simulated(self) -> int:
         return sum(1 for c in self.calls if c.fault != PASS)
 
     def intervals(self) -> list[float]:
@@ -396,6 +397,7 @@ class Scenario:
                 fault=fault,
                 started_at=self.clock() - self._t0,
                 thread=threading.current_thread().name,
+                request=info,
             )
             self._calls.append(record)
         if rule is None and self.unmatched == "error":
@@ -477,7 +479,7 @@ class Scenario:
         return [c for c in self.calls if c.rule is None]
 
     @property
-    def faults_injected(self) -> int:
+    def simulated(self) -> int:
         return sum(1 for c in self.calls if c.fault != PASS)
 
     def rule(self, name: str) -> Rule:
@@ -503,14 +505,14 @@ class Scenario:
                     "kind": r.kind,
                     "plan": r.plan.describe(),
                     "calls": r.call_count,
-                    "faults_injected": r.faults_injected,
+                    "simulated": r.simulated,
                 }
                 for r in self.rules
             ],
             "calls": [c.to_dict() for c in self.calls],
             "totals": {
                 "calls": len(self.calls),
-                "faults_injected": self.faults_injected,
+                "simulated": self.simulated,
                 "unmatched": len(self.unmatched_calls),
             },
         }

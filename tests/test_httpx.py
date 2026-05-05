@@ -80,7 +80,7 @@ async def test_async_transport() -> None:
             await client.get("https://api.example/a")
         assert (await client.get("https://api.example/a")).json() == {"n": 4}
     assert slept == [0.5]
-    assert rule.faults_injected == 4
+    assert rule.simulated == 4
 
 
 def test_activation_patches_default_transport(upstream) -> None:  # type: ignore[no-untyped-def]

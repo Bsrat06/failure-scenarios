@@ -14,7 +14,7 @@ __all__ = ["render_text", "to_json", "write_json_report"]
 
 
 def _clip(text: str, width: int) -> str:
-    return text if len(text) <= width else text[: width - 1] + "…"
+    return text if len(text) <= width else text[: width - 3] + "..."
 
 
 def render_text(scenario: Scenario, *, rule: str | None = None) -> str:

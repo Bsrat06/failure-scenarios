@@ -104,10 +104,10 @@ def pytest_terminal_summary(terminalreporter: Any, config: pytest.Config) -> Non
     if not entries:
         return
     calls = sum(e["totals"]["calls"] for e in entries)
-    faults = sum(e["totals"]["faults_injected"] for e in entries)
+    faults = sum(e["totals"]["simulated"] for e in entries)
     line = (
         f"failure-scenarios: {len(entries)} test(s), {calls} intercepted call(s), "
-        f"{faults} fault(s) injected"
+        f"{faults} simulated outcome(s)"
     )
     path = config.getoption("--fault-report")
     if path:

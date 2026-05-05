@@ -48,7 +48,7 @@ def test_fixture_isolation_report_and_junit(pytester: pytest.Pytester) -> None:
             "*failure scenario*",
             "*dep?0?*read timeout (simulated)*raised TimeoutError*",
             "*reproduce: pytest*test_fails*",
-            "failure-scenarios: 4 test?s?, 5 intercepted call?s?, 2 fault?s? injected;"
+            "failure-scenarios: 4 test?s?, 5 intercepted call?s?, 2 simulated outcome?s?;"
             " report: out/report.json",
         ]
     )

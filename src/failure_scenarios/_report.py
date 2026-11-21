@@ -34,10 +34,10 @@ def render_text(scenario: Scenario, *, rule: str | None = None) -> str:
     lines.append(f"  {'#':>3}  {'t+s':>8}  {'request':<44} {'rule':<22} {'injected':<34} result")
     for c in calls:
         req = f"{c.method} {c.target}".strip()
-        rule_label = "-" if c.rule is None else f"{c.rule}[{c.rule_call}]"
+        rule_label = "-" if c.rule is None else f"{_clip(c.rule, 18)}[{c.rule_call}]"
         lines.append(
             f"  {c.index:>3}  {c.started_at:>8.3f}  {_clip(req, 44):<44} "
-            f"{_clip(rule_label, 22):<22} {_clip(c.outcome, 34):<34} {c.result}"
+            f"{rule_label:<22} {_clip(c.outcome, 34):<34} {c.result}"
         )
     return "\n".join(lines)
 

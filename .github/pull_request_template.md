@@ -1,0 +1,3 @@
+- [ ] Tests added or updated
+- [ ] `uv run ruff check`, `uv run mypy` and `uv run pytest` pass
+- [ ] CHANGELOG.md updated for user-facing changes

@@ -1,0 +1,20 @@
+site_name: failure-scenarios
+site_description: Deterministic dependency-failure scenarios for Python tests
+repo_url: https://github.com/OWNER/failure-scenarios
+theme:
+  name: material
+  palette:
+    - scheme: default
+      toggle: { icon: material/brightness-7, name: Dark mode }
+    - scheme: slate
+      toggle: { icon: material/brightness-4, name: Light mode }
+  features: [content.code.copy, navigation.sections]
+markdown_extensions:
+  - admonition
+  - tables
+  - pymdownx.highlight
+  - pymdownx.superfences
+nav:
+  - Guide: index.md
+  - Design notes: design-notes.md
+  - Changelog: changelog.md

@@ -1,0 +1,14 @@
+name: Feature request
+description: A failure scenario or integration you need
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What failure can you not reproduce today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What would you like to write in your test?
+      render: python

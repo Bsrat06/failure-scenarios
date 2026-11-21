@@ -1,0 +1,22 @@
+name: Bug report
+description: Something does not behave as documented
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: repro
+    attributes:
+      label: Minimal reproduction
+      description: A failing test is ideal. Include the scenario seed from the report if randomness is involved.
+      render: python
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      description: Python, this package, httpx/requests/pytest

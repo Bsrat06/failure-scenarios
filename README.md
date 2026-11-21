@@ -1,7 +1,9 @@
 # failure-scenarios
 
+[![PyPI version](https://img.shields.io/pypi/v/failure-scenarios.svg)](https://pypi.org/project/failure-scenarios/)
+[![Python versions](https://img.shields.io/pypi/pyversions/failure-scenarios.svg)](https://pypi.org/project/failure-scenarios/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
+[![Downloads](https://img.shields.io/pypi/dm/failure-scenarios.svg)](https://pypi.org/project/failure-scenarios/)
 
 Deterministic, reproducible dependency-failure scenarios for Python tests.
 
